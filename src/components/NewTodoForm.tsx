@@ -25,9 +25,12 @@ function NewTodoForm(props) {
         </div>
         <div className='sm:col-span-4'>
           <label className='block mb-2 text-sm font-medium text-gray-900'>Description</label>
-          <textarea className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' rows={3} required
-          onChange={e => setDescription(e.target.value)}
-          value={description}
+          <textarea 
+            className='bg-white-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+            rows={3}
+            required
+            onChange={e => setDescription(e.target.value)}
+            value={description}
           ></textarea>
         </div>
         <button type='button'

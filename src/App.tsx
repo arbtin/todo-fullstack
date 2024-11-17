@@ -52,11 +52,11 @@ function App() {
     <>
       <div className='relative overflow-x-auto'>
         <div className='container mx-auto'>
-          <div>Your Todos</div>
+          <h2>Your Todos</h2>
           <TodoTable todos={todos} deleteTodo={deleteTodo}/>
           <button
           onClick={() => setShowAddTodoForm(!showAddTodoForm)}
-          className='rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+          className='rounded-md px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
           >{showAddTodoForm ? 'Close' : 'Add Todo'}</button>
           {showAddTodoForm &&
         <NewTodoForm addTodo={addTodo} />
