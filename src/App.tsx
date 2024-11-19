@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import TodoTable from './components/TodoTable';
-import NewTodoForm from './components/NewTodoForm';
+import TodoTable from './todo/todo-page';
+import NewTodoForm from './todo/todo-form';
 
 function App() {
 
@@ -42,10 +42,20 @@ function App() {
   }
 
   const deleteTodo = (deleteTodoRowNumber) => {
+    if (confirm(`Are you sure you want to delete item "${deleteTodoRowNumber}"?`)){
     let filtered = todos.filter(function (value) {
       return value.rowNumber !== deleteTodoRowNumber;
     });
     setTodos(filtered);
+  }
+  }
+
+  const editTodo = (editTodoRowNumber) => {
+    let filtered = todos.filter(function (value) {
+      return value == editTodoRowNumber;
+    });
+    setShowAddTodoForm(!showAddTodoForm);
+    NewTodoForm(filtered);
   }
 
   return (
@@ -53,7 +63,7 @@ function App() {
       <div className='relative overflow-x-auto'>
         <div className='container mx-auto'>
           <h2>Your Todos</h2>
-          <TodoTable todos={todos} deleteTodo={deleteTodo}/>
+          <TodoTable todos={todos} deleteTodo={deleteTodo} editTodo={editTodo}/>
           <button
           onClick={() => setShowAddTodoForm(!showAddTodoForm)}
           className='rounded-md px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm hover:bg-indigo-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
